@@ -1,10 +1,10 @@
 .header {
   nav {
-    padding: 25px;
+    padding: 1.0625rem 1.5rem;
   }
   &__logo {
-    img {
-    }
+    width: 8.8125rem;
+    display: block;
   }
   &__menu {
     //mobile
@@ -21,11 +21,41 @@
   }
   &__links {
     a {
+      position: relative;
       font-size: $font-sm;
       color: $grayishBlue;
+      transition: color 200ms ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        left: 0;
+        right: 0;
+        position: absolute;
+        bottom: -30px;
+        background: linear-gradient(to right, $limeGreen, $brightCyan);
+        height: 2px;
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+      }
+
+      &:hover {
+        color: $darkBlue;
+        &::before {
+          opacity: 1;
+        }
+      }
     }
   }
   &__cta {
     font-size: $font-sm;
+    transition: opacity 300ms ease-in-out;
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }
