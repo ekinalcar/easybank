@@ -1,10 +1,38 @@
 .header {
+  //hamburger
+  &.open {
+    .header__menu {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .overlay {
+    visibility: hidden;
+    opacity: 0;
+    background-image: linear-gradient($darkBlue, transparent);
+    position: fixed;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   nav {
     padding: 1.0625rem 1.5rem;
   }
   &__logo {
-    width: 8.8125rem;
-    display: block;
+    img {
+      width: 8.8125rem;
+      height: 1.375rem;
+    }
   }
   &__menu {
     //mobile
@@ -18,17 +46,6 @@
 
       &:not(:last-child) {
         margin-bottom: 5px;
-      }
-    }
-    &.open {
-      > span:first-child {
-        transform: rotate(45deg);
-      }
-      > span:nth-child(2) {
-        opacity: 0;
-      }
-      > span:last-child {
-        transform: rotate(-45deg);
       }
     }
   }
